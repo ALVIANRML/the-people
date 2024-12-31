@@ -1,59 +1,55 @@
 /* Navbar Container */
 .navbar {
-    display: flex; /* Membuat elemen dalam baris */
-    justify-content: space-around; /* Membagi elemen secara merata */
-    align-items: center; /* Rata vertikal */
-    padding: 10px 0; /* Spasi di atas dan bawah */
-    border-bottom: 5px solid #D0FF01; /* Garis bawah kuning */
-    background-color: white; /* Latar belakang putih */
-    color: black; /* Warna teks */
-    font-family: Arial, sans-serif; /* Font umum */
-    position: fixed; /* Navbar tetap di posisi atas */
-    top: 0; /* Posisi di atas */
-    left: 0; /* Mulai dari kiri */
-    width: 100%; /* Memenuhi lebar layar */
-    box-sizing: border-box; /* Memastikan padding tetap di dalam lebar */
-    margin-top: 80px; /* Jarak navbar dari atas */
-  }
+  display: flex; /* Membuat elemen dalam baris */
+  justify-content: space-around; /* Membagi elemen secara merata */
+  align-items: center; /* Rata vertikal */
+  padding: 10px 0; /* Spasi di atas dan bawah */
+  border-bottom: 10px solid #D0FF01; /* Garis bawah kuning */
+  background-color: white; /* Latar belakang putih */
+  color: black; /* Warna teks */
+  font-family: Arial, sans-serif; /* Font umum */
+  width: 100%; /* Memenuhi lebar layar */
+  position: relative;
   
-  /* Navbar Item */
+}
+
+/* Navbar Item */
+.navbar-item {
+  text-align: center; /* Menyelaraskan teks di tengah */
+  font-size: 16px; /* Ukuran font */
+  font-weight: bold; /* Teks tebal */
+  border-left: 1px solid black; /* Garis pemisah antar item */
+  flex-grow: 1; /* Membagi ruang secara proporsional */
+  padding: 10px; /* Tambahkan padding agar lebih terlihat */
+  transition: all 0.3s ease; /* Efek transisi halus untuk hover */
+  cursor: pointer; /* Ubah kursor menjadi pointer */
+}
+
+/* Hapus garis pemisah di item pertama */
+.navbar-item:first-child {
+  border-left: none;
+}
+
+/* Efek Hover */
+.navbar-item:hover {
+  background-color: black; /* Ubah warna latar belakang saat hover */
+  color: white; /* Ubah warna teks saat hover */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Elemen menjadi vertikal */
+  }
+
   .navbar-item {
-    text-align: center; /* Menyelaraskan teks di tengah */
-    font-size: 16px; /* Ukuran font */
-    font-weight: bold; /* Teks tebal */
-    border-left: 1px solid black; /* Garis pemisah antar item */
-    flex-grow: 1; /* Membagi ruang secara proporsional */
-    padding: 10px; /* Tambahkan padding agar lebih terlihat */
-    transition: all 0.3s ease; /* Efek transisi halus untuk hover */
-    cursor: pointer; /* Ubah kursor menjadi pointer */
+    border-left: none; /* Hapus garis pemisah vertikal */
+    border-top: 1px solid black; /* Tambahkan garis pemisah horizontal */
+    width: 100%; /* Setiap item memenuhi lebar container */
+    text-align: center; /* Teks tetap rata tengah */
   }
-  
-  /* Hapus garis pemisah di item pertama */
+
   .navbar-item:first-child {
-    border-left: none;
+    border-top: none; /* Hapus garis pemisah horizontal pertama */
   }
-  
-  /* Efek Hover */
-  .navbar-item:hover {
-    background-color: black; /* Ubah warna latar belakang saat hover */
-    color: white; /* Ubah warna teks saat hover */
-  }
-  
-  /* Responsif untuk layar kecil */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column; /* Elemen menjadi vertikal */
-    }
-  
-    .navbar-item {
-      border-left: none; /* Hapus garis pemisah vertikal */
-      border-top: 1px solid black; /* Tambahkan garis pemisah horizontal */
-      width: 100%; /* Setiap item memenuhi lebar container */
-      text-align: center; /* Teks tetap rata tengah */
-    }
-  
-    .navbar-item:first-child {
-      border-top: none; /* Hapus garis pemisah horizontal pertama */
-    }
-  }
-  
+}

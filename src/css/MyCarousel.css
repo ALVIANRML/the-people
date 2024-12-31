@@ -1,0 +1,32 @@
+/* Kontainer Utama */
+.stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative; /* Buat kontainer tetap dalam tata letaknya */
+    z-index: 1; /* Kurangi nilai ini jika elemen ini menimpa */
+    
+    overflow: hidden; /* Hilangkan konten yang bocor */
+  }
+  
+  /* Elemen Stack */
+  .stack-container .stack {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative; /* Pastikan stack tidak menimpa elemen lain */
+    z-index: 1;
+  }
+  
+  /* Responsif */
+  @media (max-width: 768px) {
+    
+    .stack-container .stack {
+      max-width: 90%;
+    }
+  }
+  

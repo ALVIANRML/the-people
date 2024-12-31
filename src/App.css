@@ -12,6 +12,19 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.container {
+  text-align: center;
+  flex-direction: column; 
+}
+
+.main-content.blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.main-content {
+  transition: filter 0.3s ease;
+}
 
 .App-header {
   background-color: white;

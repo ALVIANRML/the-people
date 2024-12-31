@@ -1,0 +1,16 @@
+.Figure {
+    background-color: yellow;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flexbox;
+    border: 2px solid black; /* Menambahkan border */
+    box-sizing: border-box;
+}
+.Figure img {
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    object-fit: cover; /* Menjaga proporsi gambar */
+    margin: 0;
+  }

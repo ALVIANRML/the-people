@@ -1,0 +1,36 @@
+.stack-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.stack-container .stack {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.stack-container .p-0 {
+  width: 100%;
+}
+
+.stack-container .stack div {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  
+  .stack-container .stack {
+    max-width: 90%;
+  }
+}
