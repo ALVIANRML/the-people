@@ -4,7 +4,7 @@
   justify-content: space-around; /* Membagi elemen secara merata */
   align-items: center; /* Rata vertikal */
   padding: 10px 0; /* Spasi di atas dan bawah */
-  border-bottom: 10px solid #D0FF01; /* Garis bawah kuning */
+  border-bottom: 10px solid black; /* Garis bawah kuning */
   background-color: white; /* Latar belakang putih */
   color: black; /* Warna teks */
   font-family: Arial, sans-serif; /* Font umum */

@@ -21,6 +21,10 @@
     position: relative; /* Pastikan stack tidak menimpa elemen lain */
     z-index: 1;
   }
+  .custom-carousel .carousel-indicators {
+    z-index: 0; /* Atur nilai sesuai kebutuhan */
+    position: block; /* Tambahkan jika perlu */
+}
   
   /* Responsif */
   @media (max-width: 768px) {
@@ -29,4 +33,3 @@
       max-width: 90%;
     }
   }
-  

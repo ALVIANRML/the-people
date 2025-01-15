@@ -14,6 +14,7 @@ import september from'../img/september/september.png'
 import october from'../img/october/october.png'
 import november from'../img/november/november.png'
 import december from'../img/december/december.png'
+import { Popup } from "./Popup";
 
 export function January() {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -30,69 +31,20 @@ export function January() {
 
   return (
     <div>
-      
       <div className={isPopupOpen ? "main-content blur" : "main-content"}>
         <Figure className="Figure" onClick={handleOpenPopup}>
           <Figure.Image alt="171x180" src={january} />
         </Figure>
       </div>
-
-      
-      {isPopupOpen && (
-        <div
-          className="modal show d-block"
-          tabIndex="-1"
-          role="dialog"
-          onClick={handleClosePopup} // Tutup jika klik di luar
-        >
-          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Bootstrap Modal</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={handleClosePopup}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={handleClosePopup}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        title="What's new in January 2025"
+        content="This is the content for January!"
+      />
     </div>
   );
 }
-
 
 export function February() {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -109,65 +61,18 @@ export function February() {
 
   return (
     <div>
-      {/* Tambahkan kelas 'blur' ke elemen utama jika modal terbuka */}
       <div className={isPopupOpen ? "main-content blur" : "main-content"}>
         <Figure className="Figure" onClick={handleOpenPopup}>
           <Figure.Image alt="171x180" src={february} />
         </Figure>
       </div>
-
-      {/* Modal Bootstrap */}
-      {isPopupOpen && (
-        <div
-          className="modal show d-block"
-          tabIndex="-1"
-          role="dialog"
-          onClick={handleClosePopup} // Tutup jika klik di luar
-        >
-          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Bootstrap Modal</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={handleClosePopup}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={handleClosePopup}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        title="What's new in February 2025"
+        src = "youtube"
+        content="!!COMING SOON!!"
+      />
     </div>
   );
 }
@@ -204,6 +109,7 @@ export function March() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -243,6 +149,7 @@ export function March() {
                   Close
                 </button>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -285,6 +192,7 @@ export function April() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -324,6 +232,7 @@ export function April() {
                   Close
                 </button>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -366,6 +275,7 @@ export function May() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -407,6 +317,7 @@ export function May() {
               </div>
             </div>
           </div>
+          </div>
         </div>
       )}
     </div>
@@ -445,6 +356,7 @@ export function June() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -483,6 +395,7 @@ export function June() {
                 >
                   Close
                 </button>
+              </div>
               </div>
             </div>
           </div>
@@ -524,6 +437,7 @@ export function July() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -562,6 +476,7 @@ export function July() {
                 >
                   Close
                 </button>
+              </div>
               </div>
             </div>
           </div>
@@ -603,6 +518,7 @@ export function August() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -644,6 +560,7 @@ export function August() {
               </div>
             </div>
           </div>
+          </div>
         </div>
       )}
     </div>
@@ -682,6 +599,7 @@ export function September() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -720,6 +638,7 @@ export function September() {
                 >
                   Close
                 </button>
+              </div>
               </div>
             </div>
           </div>
@@ -762,6 +681,7 @@ export function October() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -800,6 +720,7 @@ export function October() {
                 >
                   Close
                 </button>
+              </div>
               </div>
             </div>
           </div>
@@ -840,6 +761,88 @@ export function November() {
           onClick={handleClosePopup} // Tutup jika klik di luar
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Bootstrap Modal</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={handleClosePopup}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+                <p>This is a Bootstrap modal in React!</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleClosePopup}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+export function December() {
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setPopupOpen(true);
+    document.body.classList.add("overflow-hidden");
+  };
+
+  const handleClosePopup = () => {
+    setPopupOpen(false);
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  return (
+    <div>
+      {/* Tambahkan kelas 'blur' ke elemen utama jika modal terbuka */}
+      <div className={isPopupOpen ? "main-content blur" : "main-content"}>
+        <Figure className="Figure" onClick={handleOpenPopup}>
+          <Figure.Image alt="171x180" src={december} />
+        </Figure>
+      </div>
+
+      {/* Modal Bootstrap */}
+      {isPopupOpen && (
+        <div
+          className="modal show d-block"
+          tabIndex="-1"
+          role="dialog"
+          onClick={handleClosePopup} // Tutup jika klik di luar
+        >
+          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="background-popup">
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Bootstrap Modal</h5>
@@ -881,84 +884,6 @@ export function November() {
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-
-export function December() {
-  const [isPopupOpen, setPopupOpen] = useState(false);
-
-  const handleOpenPopup = () => {
-    setPopupOpen(true);
-    document.body.classList.add("overflow-hidden");
-  };
-
-  const handleClosePopup = () => {
-    setPopupOpen(false);
-    document.body.classList.remove("overflow-hidden");
-  };
-
-  return (
-    <div>
-      {/* Tambahkan kelas 'blur' ke elemen utama jika modal terbuka */}
-      <div className={isPopupOpen ? "main-content blur" : "main-content"}>
-        <Figure className="Figure" onClick={handleOpenPopup}>
-          <Figure.Image alt="171x180" src={december} />
-        </Figure>
-      </div>
-
-      {/* Modal Bootstrap */}
-      {isPopupOpen && (
-        <div
-          className="modal show d-block"
-          tabIndex="-1"
-          role="dialog"
-          onClick={handleClosePopup} // Tutup jika klik di luar
-        >
-          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Bootstrap Modal</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={handleClosePopup}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-                <p>This is a Bootstrap modal in React!</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={handleClosePopup}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       )}

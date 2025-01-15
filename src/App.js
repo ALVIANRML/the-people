@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import MyButton from './Button';
 import LogoHeader from './component/LogoHeader';
 import Navbar from './component/Navbar';
 import MyCarousel from './component/Carousel';
@@ -10,7 +9,7 @@ import MyStack from './component/Stack';
 import Events from './component/Text';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { Footer } from './component/Footer';
+import Footer from './component/Footer';
 
 function App() {
   return (
@@ -22,10 +21,10 @@ function App() {
         <Events/>
         <MyStack />
         <hr style={{ border: "1px solid black",
-        width: "80%", // Lebar spesifik garis
+        width: "90%", // Lebar spesifik garis
         marginLeft: "auto", // Agar mulai dari tengah
         marginRight: "auto", 
-        marginTop:"15%"
+        marginTop:"10%"
       }} />
       <Footer/>
         

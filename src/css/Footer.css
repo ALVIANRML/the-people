@@ -1,0 +1,86 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 4%;
+    background-color: #fff; /* Ganti warna jika diperlukan */
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap; /* Izinkan elemen turun ke baris baru */
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px; /* Tetapkan lebar minimum agar tetap proporsional */
+  }
+  
+  .footer-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-section ul li,
+  .footer-section p {
+    font-size: 14px;
+    color: gray;
+    margin: 5px 0;
+  }
+  
+  .logo-footer {
+    display: block;
+    max-width: 100%; /* Batasi lebar gambar agar sesuai dengan kontainer */
+    height: auto; /* Menjaga rasio aspek gambar */
+    margin: 0 ; /* Pusatkan logo secara horizontal */
+    margin-top: 30vh; /* Atur jarak atas jika diperlukan */
+  }
+  
+  /* Media query untuk layar kecil */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column; /* Ubah tata letak menjadi kolom */
+      align-items: center; /* Pusatkan elemen dalam kolom */
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin: 20px 0; /* Tambahkan jarak antar bagian di layar kecil */
+    }
+  
+    .footer-section h3 {
+      font-size: 18px; /* Perbesar font untuk layar kecil */
+    }
+  
+    .footer-section ul li,
+    .footer-section p {
+      font-size: 16px; /* Sesuaikan ukuran font */
+    }
+  
+    .logo-footer {
+      width: 80%; /* Sesuaikan ukuran logo untuk layar kecil */
+      margin-top: 20px; /* Atur jarak atas agar terlihat rapi */
+      
+    }
+  }
+  
+  /* Media query untuk layar sangat kecil (misalnya ponsel) */
+  @media (max-width: 480px) {
+    .footer-section h3 {
+      font-size: 16px;
+    }
+  
+    .footer-section ul li,
+    .footer-section p {
+      font-size: 14px;
+    }
+  
+    .logo-footer {
+      width: 90%; /* Kurangi ukuran logo untuk layar sangat kecil */
+    }
+  }
+  

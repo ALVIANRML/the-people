@@ -1,5 +1,5 @@
 import '../../src/css/Logo.css';
-import gambar from'../../src/the_people_logo_2_top.png'
+import gambar from'../../src/img/the_people_logo_2_top 2.png'
 
 function LogoHeader() {
   return (
