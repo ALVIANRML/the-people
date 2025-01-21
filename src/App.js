@@ -12,12 +12,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Footer from './component/Footer';
 
 function App() {
+  
+
   return (
     <div className="app-container">
       <header className="app-header">
         <LogoHeader />
         <Navbar />
-        <MyCarousel />
+        <MyCarousel  />
         <Events/>
         <MyStack />
         <hr style={{ border: "1px solid black",

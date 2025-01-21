@@ -1,72 +1,69 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import '../css/MyCarousel.css'
-import main1 from'../../src/img/carousel/main_site1.png'
-import main2 from'../../src/img/carousel/main_site2.png'
-import main3 from'../../src/img/carousel/main_site3.png'
-import main4 from'../../src/img/carousel/main_site4.png'
-import gif1 from'../../src/gif/gif_main.GIF'
+import React, { useEffect, useState } from "react";
+import { Carousel } from "react-bootstrap";
+import axios from "axios";
+import { API_URL } from "../api";
 
 const MyCarousel = () => {
+  const [images, setImages] = useState([]); // State untuk menyimpan data gambar
+  const [loading, setLoading] = useState(true); // State untuk loading
+  const [error, setError] = useState(null); // State untuk menangkap error
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/get-all-images`);
+        console.log("API Response:", response.data); // Log data API
+
+        // Pastikan data berbentuk array
+        if (Array.isArray(response.data)) {
+          setImages(response.data); // Simpan data gambar ke state
+        } else {
+          throw new Error("Invalid response format"); // Jika format tidak sesuai
+        }
+      } catch (error) {
+        setError(error.message || "Error fetching images");
+        console.error("Error fetching images:", error);
+      } finally {
+        setLoading(false); // Set loading selesai
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Tampilkan indikator loading
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>; // Tampilkan pesan error
+  }
+
   return (
-    <Carousel 
-    className="custom-carousel" 
-    interval={3000}
-    indicators={true} /* Tampilkan indikator */
-    controls={true} /* Tampilkan tombol next/prev */
-    fade={true} /* Atur animasi transisi */
+    <Carousel
+      className="custom-carousel"
+      interval={3000}
+      indicators={true}
+      controls={true}
+      fade={true}
     >
-      <Carousel.Item>
-        <img
-          className="d-block w-100 custom-image"
-          src={main1}
-          alt="First slide"
-          style={{ height: '79vh', objectFit: 'cover' }}
-        />
-        
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <img
-          className="d-block w-100 custom-image"
-          src={main2}
-          alt="Second slide"
-          style={{ height: '79vh', objectFit: 'cover' }}
-        />
-       
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <img
-          className="d-block w-100 custom-image"
-          src={gif1}
-          alt="Second slide"
-          style={{ height: '79vh', objectFit: 'cover' }}
-        />
-       
-      </Carousel.Item>
-
-      <Carousel.Item>
-        <img
-          className="d-block w-100 custom-image"
-          src={main3}
-          alt="Second slide"
-          style={{ height: '79vh', objectFit: 'cover' }}
-        />
-       
-      </Carousel.Item>
-      
-      <Carousel.Item>
-        <img
-          className="d-block w-100 custom-image"
-          src={main4}
-          alt="Second slide"
-          style={{ height: '79vh', objectFit: 'cover' }}
-        />
-       
-      </Carousel.Item>
-
-      
+      {images.length > 0 ? (
+        images.map((image, index) => (
+          <Carousel.Item key={image.id || index}>
+            <img
+              className="d-block w-100 custom-image"
+              src={image.image} // Gunakan URL Base64 dari API
+              alt={`Slide ${index + 1}`}
+              style={{
+                height: "79vh",
+                objectFit: "cover",
+              }}
+            />
+          </Carousel.Item>
+        ))
+      ) : (
+        <div>No images available</div> // Jika tidak ada gambar
+      )}
     </Carousel>
   );
 };

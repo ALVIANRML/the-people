@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import "../../css/PopupCMS.css";
 import upload from "../../img/icon-link/upload.png";
+import axios from "axios";
+import { API_URL } from "../../api";
 
 export function MonthDropdown() {
   const months = [
@@ -39,6 +41,7 @@ export function EventType() {
 export function Popup({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
   const fileInputRef = useRef(null);
   const [preview, setPreview] = useState(null); // State untuk menyimpan pratinjau gambar
+  const [imageBase64, setImageBase64] = useState(null); // State untuk menyimpan gambar dalam format base64
 
   const handleUploadClick = () => {
     fileInputRef.current.click(); // Memicu klik pada input file
@@ -49,7 +52,40 @@ export function Popup({ text, isOpen, onClose, title, content, genre, src, icon,
     if (file) {
       const fileURL = URL.createObjectURL(file); // Membuat URL sementara untuk pratinjau
       setPreview(fileURL); // Menyimpan URL ke state
-      console.log("File uploaded:", file);
+
+      // Mengonversi gambar ke Base64
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result.split(',')[1]; // Ambil bagian Base64
+        setImageBase64(base64String); // Menyimpan gambar dalam Base64
+      };
+      reader.readAsDataURL(file); // Membaca gambar sebagai Data URL
+    }
+  };
+
+  const handleSave = async () => {
+    if (imageBase64) {
+      try {
+        const response = await axios.post(
+          `${API_URL}/upload-image`,
+          { image: imageBase64 },
+          { headers: { 'Content-Type': 'application/json' } }
+        );
+        console.log("Image uploaded successfully", response.data);
+        onClose();
+      } catch (error) {
+        if (error.response) {
+          // Server memberikan respons error (misalnya 4xx atau 5xx)
+          console.error("Error response:", error.response.data);
+          console.error("Error status:", error.response.status);
+        } else if (error.request) {
+          // Permintaan dikirim, tetapi tidak ada respons
+          console.error("Error request:", error.request);
+        } else {
+          // Kesalahan lainnya
+          console.error("Error message:", error.message);
+        }
+      }
     }
   };
 
@@ -74,7 +110,7 @@ export function Popup({ text, isOpen, onClose, title, content, genre, src, icon,
                 ) : (
                   <>
                     <img className="img-upload" src={upload} alt="Upload icon" />
-                    <p style={{textAlign:'center'}}>
+                    <p style={{ textAlign: 'center' }}>
                       Upload img carousel
                       <br />
                       1440 x 563
@@ -87,12 +123,16 @@ export function Popup({ text, isOpen, onClose, title, content, genre, src, icon,
               {/* Input file tersembunyi */}
               <input
                 type="file"
+                name="imageData"
                 ref={fileInputRef}
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 accept="image/*"
                 onChange={handleFileChange}
               />
-              <button className="save-button">Save</button>
+              {/* Tombol Save yang akan mengirim gambar ke server */}
+              <button className="save-button" onClick={handleSave}>
+                Save
+              </button>
             </div>
             <div className="modal-footer"></div>
           </div>
