@@ -1,0 +1,71 @@
+
+  
+  .modal-body-cms{
+    display: flex; /* Mengatur tata letak flexbox */
+  
+    gap: 20px; /* Memberi jarak antar elemen */
+    width: auto;
+    height: 60vh;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column; /* Elemen disusun vertikal */       
+  }
+
+  .modal-body-input{
+   height: 5vh;
+   border-radius: 10px;
+  }
+  .modal-body-cms-calender{
+    display: flex; /* Mengatur tata letak flexbox */
+  
+    gap: 20px; /* Memberi jarak antar elemen */
+    width: 50vh;
+    height: 50vh;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column; /* Elemen disusun vertikal */       
+  }
+  .img-upload{
+    width: 20%;
+    height: auto;
+  }
+  .img-preview{
+    height: 100%;
+    width: 100%;
+  }
+
+  .save-button{
+    float: right;
+    margin-right: 5vh;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 5vw;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .input-cms{
+    border-radius: 10px;
+    width: 100%;
+   height: auto; 
+  }

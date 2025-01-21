@@ -21,8 +21,8 @@ function App() {
         <Events/>
         <MyStack />
         <hr style={{ border: "1px solid black",
-        width: "90%", // Lebar spesifik garis
-        marginLeft: "auto", // Agar mulai dari tengah
+        width: "90%", 
+        marginLeft: "auto", 
         marginRight: "auto", 
         marginTop:"10%"
       }} />

@@ -3,7 +3,9 @@ import { Carousel } from 'react-bootstrap';
 import '../css/MyCarousel.css'
 import main1 from'../../src/img/carousel/main_site1.png'
 import main2 from'../../src/img/carousel/main_site2.png'
-import main3 from'../../src/gif/gif_main.GIF'
+import main3 from'../../src/img/carousel/main_site3.png'
+import main4 from'../../src/img/carousel/main_site4.png'
+import gif1 from'../../src/gif/gif_main.GIF'
 
 const MyCarousel = () => {
   return (
@@ -37,7 +39,27 @@ const MyCarousel = () => {
       <Carousel.Item>
         <img
           className="d-block w-100 custom-image"
+          src={gif1}
+          alt="Second slide"
+          style={{ height: '79vh', objectFit: 'cover' }}
+        />
+       
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100 custom-image"
           src={main3}
+          alt="Second slide"
+          style={{ height: '79vh', objectFit: 'cover' }}
+        />
+       
+      </Carousel.Item>
+      
+      <Carousel.Item>
+        <img
+          className="d-block w-100 custom-image"
+          src={main4}
           alt="Second slide"
           style={{ height: '79vh', objectFit: 'cover' }}
         />

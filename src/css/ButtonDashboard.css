@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    justify-content: center; /* Mengatur teks di tengah secara horizontal */
+    align-items: center;    /* Mengatur teks di tengah secara vertikal */
+    background-color: #5BC357; /* Warna hijau untuk kotak */
+    color: white;           /* Warna teks putih */
+    font-size: 24px;        /* Ukuran font default */
+    text-align: center;     /* Pusatkan teks */
+    height: 25vh;           /* Tinggi relatif terhadap tinggi viewport */
+    width: auto;            /* Lebar otomatis */
+    margin-top: 10vh;       /* Jarak dari atas */
+    margin-bottom: 4vh;     /* Jarak dari bawah */
+}
+
+h4 {
+    font-size: 5vh;         /* Ukuran font default */
+}
+
+/* Media query untuk layar kecil, seperti ponsel */
+@media (max-width: 768px) {
+    .container {
+        height: 20vh;       /* Kurangi tinggi untuk layar kecil */
+        margin-top: 10vh;   /* Kurangi margin atas */
+        margin-bottom: 2vh; /* Kurangi margin bawah */
+    }
+
+    h4 {
+        font-size: 4vh;     /* Sesuaikan ukuran font */
+    }
+}
+
+/* Media query untuk layar sangat kecil, seperti ponsel kecil */
+@media (max-width: 480px) {
+    .container {
+        height: 15vh;       /* Kurangi lebih banyak tinggi */
+        margin-top: 5vh;    /* Margin atas lebih kecil */
+        margin-bottom: 2vh;
+    }
+
+    h4 {
+        font-size: 3vh;     /* Ukuran font lebih kecil */
+    }
+}
+
+/* Media query untuk layar besar, seperti desktop */
+@media (min-width: 1024px) {
+    .container {
+        height: 30vh;       /* Tambahkan tinggi untuk layar besar */
+        margin-top: 25vh;   /* Margin lebih besar */
+    }
+
+    h4 {
+        font-size: 6vh;     /* Ukuran font lebih besar */
+    }
+}

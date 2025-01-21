@@ -23,25 +23,25 @@ const Footer = () => {
               Home
             </a>
           </li>
-          <li>Music</li>
-          <li>About</li>
+          <li>Event</li>
+          
         </ul>
       </div>
       <div className="footer-section">
         <h3>Social</h3>
         <ul>
         <li>
-            <a href="https://www.instagram.com/your_instagram_account" style={{color:"gray"}} target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/_______thepeople?igsh=MWZsa2xqcmxqNTV1NA==" style={{color:"gray"}} target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
           </li>
           <li>
-            <a href="https://open.spotify.com/user/your_spotify_account"  style={{color:"gray"}} target="_blank" rel="noopener noreferrer">
+            <a href="https://open.spotify.com/user/31ewql24f6l42h4oxylfkj2nbvtm?si=wKiePhb7SSeyALeVogn-QQ&nd=1&dlsi=1672a923ddfe44de"  style={{color:"gray"}} target="_blank" rel="noopener noreferrer">
               Spotify
             </a>
           </li>
           <li>
-            <a href="https://www.tokopedia.com/your_tokopedia_store"  style={{color:"gray"}} target="_blank" rel="noopener noreferrer">
+            <a href="https://tokopedia.link/tufgkmyseQb"  style={{color:"gray"}} target="_blank" rel="noopener noreferrer">
               Tokopedia
             </a>
           </li>

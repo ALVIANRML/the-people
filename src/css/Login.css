@@ -7,7 +7,22 @@ body{
     height: auto;
     margin-right: 2;
 }
+button.mdb-btn:focus, button.mdb-btn:active {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
 
+  button.mdb-btn {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  button.mdb-btn:focus, button.mdb-btn:active {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
 
 
 @media (min-width: 1025px) {
