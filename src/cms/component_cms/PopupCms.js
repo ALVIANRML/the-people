@@ -28,7 +28,7 @@ export function EventType() {
 
   return (
     
-    <select id="event-type" className="modal-body-input" style={{ backgroundColor: "white", color: "black", border: "1px solid black" }}>
+    <select id="event_type" name="event_type" className="modal-body-input" style={{ backgroundColor: "white", color: "black", border: "1px solid black" }}>
       {type.map((type, index) => (
         <option key={index} value={type}>
           {type}
@@ -211,23 +211,24 @@ export function PopupUpdateCalender({ text, isOpen, onClose, title, content, gen
 }
 
 export function PopupUpdateEvent({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
-  const fileInputRef = useRef(null);
-  const [preview, setPreview] = useState(null); // State untuk menyimpan pratinjau gambar
+  if (!isOpen) return null;
 
-  const handleUploadClick = () => {
-    fileInputRef.current.click(); // Memicu klik pada input file
-  };
+  const handleSave = async () => {
+    const dataToSend = {
+      eventName: document.getElementById("event-name").value,
+      eventDate: document.querySelector("input[name='event_date']").value,
+      eventType: document.querySelector("select[name='event_type']").value,
+      eventLink: document.getElementById("event-link").value,
+    };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const fileURL = URL.createObjectURL(file); // Membuat URL sementara untuk pratinjau
-      setPreview(fileURL); // Menyimpan URL ke state
-      console.log("File uploaded:", file);
+    try {
+      const response = await axios.post("http://localhost:5000/api/save-event", dataToSend);
+      console.log("Response from server:", response.data);
+      onClose();
+    } catch (error) {
+      console.error("Error saving data:", error);
     }
   };
-
-  if (!isOpen) return null;
 
   return (
     <div className="modal show d-block" tabIndex="-1" role="dialog" onClick={onClose}>
@@ -240,23 +241,40 @@ export function PopupUpdateEvent({ text, isOpen, onClose, title, content, genre,
               </h5>
               <button type="button" className="btn-close" onClick={onClose}></button>
             </div>
-            <div className="popup-body" >
-            <div className="modal-body-cms" style={{backgroundColor:'transparent', justifyContent:"unset", alignItems:'unset', justifyContent:"right"}}>
-            
-            <label style={{color:"black"}} id="event_name">Event Name</label>
-            <input type="text" id="event-name" className="modal-body-input" style={{color:'black',backgroundColor:'white', border:'1px solid black'}} name="event_name" placeholder="Enter Event Name"></input>
-            
-            <label id="event_date" style={{color:"black"}}>Add Event Date</label>
-            <input type="date" name="event_date"className="modal-body-input" style={{color:'black',backgroundColor:'white', border:'1px solid black'}} ></input>
-            
-            <label id="event-type" style={{color:"black"}}>Event Type</label>
-            <EventType/>
-            
-            <label style={{color:"black"}}>Event Link</label>
-            <input type="text" id="event-name" className="modal-body-input" style={{color:'black',backgroundColor:'white', border:'1px solid black'}} name="event_type" placeholder="Enter Event LINK"></input>
-            
-            </div>
-              <button className="save-button">Save</button>
+            <div className="popup-body">
+              <div className="modal-body-cms" style={{ backgroundColor: 'transparent', justifyContent: "unset", alignItems: 'unset', justifyContent: "right" }}>
+                <label style={{ color: "black" }} id="event_name">Event Name</label>
+                <input
+                  type="text"
+                  id="event-name"
+                  className="modal-body-input"
+                  style={{ color: 'black', backgroundColor: 'white', border: '1px solid black' }}
+                  name="event_name"
+                  placeholder="Enter Event Name"
+                />
+
+                <label id="event_date" style={{ color: "black" }}>Add Event Date</label>
+                <input
+                  type="date"
+                  name="event_date"
+                  className="modal-body-input"
+                  style={{ color: 'black', backgroundColor: 'white', border: '1px solid black' }}
+                />
+
+                <label id="event-type" style={{ color: "black" }}>Event Type</label>
+                <EventType />
+
+                <label style={{ color: "black" }}>Event Link</label>
+                <input
+                  type="text"
+                  id="event-link"
+                  className="modal-body-input"
+                  style={{ color: 'black', backgroundColor: 'white', border: '1px solid black' }}
+                  name="event_link"
+                  placeholder="Enter Event LINK"
+                />
+              </div>
+              <button className="save-button" onClick={handleSave}>Save</button>
             </div>
             <div className="modal-footer"></div>
           </div>
