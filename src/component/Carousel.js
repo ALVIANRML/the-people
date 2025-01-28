@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import axios from "axios";
 import { API_URL } from "../api";
+import '../css/MyCarousel.css'
 
 const MyCarousel = () => {
   const [images, setImages] = useState([]); // State untuk menyimpan data gambar

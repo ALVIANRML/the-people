@@ -3,6 +3,9 @@ import "../../css/PopupCMS.css";
 import upload from "../../img/icon-link/upload.png";
 import axios from "axios";
 import { API_URL } from "../../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export function MonthDropdown() {
   const months = [
@@ -224,6 +227,18 @@ export function PopupUpdateEvent({ text, isOpen, onClose, title, content, genre,
     try {
       const response = await axios.post("http://localhost:5000/api/save-event", dataToSend);
       console.log("Response from server:", response.data);
+      console.log("Data saved successfully!");
+
+    // Show success toast
+    toast.success("Data saved successfully!", {
+      position: "top-right",
+      autoClose: 3000, // 3 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
       onClose();
     } catch (error) {
       console.error("Error saving data:", error);
