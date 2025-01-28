@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a4337479.css",
+    "main.js": "/static/js/main.1b3474a0.js",
+    "static/js/488.ae4cbf55.chunk.js": "/static/js/488.ae4cbf55.chunk.js",
+    "static/media/july.png": "/static/media/july.ca2c76f71350bb869a25.png",
+    "static/media/december.png": "/static/media/december.0b300e7608ac27d2f6b7.png",
+    "static/media/january.png": "/static/media/january.c79643ad81ea6dbaf11b.png",
+    "static/media/september.png": "/static/media/september.02dc367894904cae49c7.png",
+    "static/media/february.png": "/static/media/february.138dc0602f33f53cbb26.png",
+    "static/media/may.png": "/static/media/may.c4ad5bdf14775dc8620a.png",
+    "static/media/april.png": "/static/media/april.0f6179b9e138f5bb2e72.png",
+    "static/media/august.png": "/static/media/august.64303278a7cc10cdc7f5.png",
+    "static/media/march.png": "/static/media/march.bb5c8d6e7e1dd9a051ae.png",
+    "static/media/june.png": "/static/media/june.9f2e0709b7ece49b447d.png",
+    "static/media/november.png": "/static/media/november.683fd2cb123d0b1f86ca.png",
+    "static/media/october.png": "/static/media/october.461063d1fb5e9a50256e.png",
+    "static/media/youtube.png": "/static/media/youtube.e596b8f740c878945dff.png",
+    "static/media/spotify.png": "/static/media/spotify.15bf0d27b1d9d38f5581.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.a4337479.css.map": "/static/css/main.a4337479.css.map",
+    "main.1b3474a0.js.map": "/static/js/main.1b3474a0.js.map",
+    "488.ae4cbf55.chunk.js.map": "/static/js/488.ae4cbf55.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4337479.css",
+    "static/js/main.1b3474a0.js"
+  ]
+}
