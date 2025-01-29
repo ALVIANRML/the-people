@@ -12,7 +12,7 @@ const MyCarousel = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${API_URL}/get-all-images`);
+        const response = await axios.get(`${API_URL}/status`);
         console.log("API Response:", response.data); // Log data API
 
         // Pastikan data berbentuk array
