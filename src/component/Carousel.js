@@ -12,7 +12,7 @@ const MyCarousel = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${API_URL}/status`);
+        const response = await axios.get(`${API_URL}/get-all-images`);
         console.log("API Response:", response.data); // Log data API
 
         // Pastikan data berbentuk array
@@ -22,7 +22,7 @@ const MyCarousel = () => {
           throw new Error("Invalid response format"); // Jika format tidak sesuai
         }
       } catch (error) {
-        setError("error.message" || "Error fetching images");
+        setError(error.message || "Error fetching images");
         console.error("Error fetching images:", error);
       } finally {
         setLoading(false); // Set loading selesai
