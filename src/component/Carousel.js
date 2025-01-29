@@ -19,10 +19,10 @@ const MyCarousel = () => {
         if (Array.isArray(response.data)) {
           setImages(response.data); // Simpan data gambar ke state
         } else {
-          throw new Error("Invalid response format"); // Jika format tidak sesuai
+          throw new Error(response.data); // Jika format tidak sesuai
         }
       } catch (error) {
-        setError(error.message || "Error fetching images");
+        setError("error.message" || "Error fetching images");
         console.error("Error fetching images:", error);
       } finally {
         setLoading(false); // Set loading selesai
