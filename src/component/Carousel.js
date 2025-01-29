@@ -22,7 +22,7 @@ const MyCarousel = () => {
           throw new Error("Invalid response format"); // Jika format tidak sesuai
         }
       } catch (error) {
-        setError("error.message" || "Error fetching images");
+        setError(error.message || "Error fetching images");
         console.error("Error fetching images:", error);
       } finally {
         setLoading(false); // Set loading selesai
