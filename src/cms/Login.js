@@ -18,7 +18,7 @@ function App() {
   const [password, setPassword] = useState(""); // Untuk menyimpan password
   const [message, setMessage] = useState("");   // Untuk pesan respons
   const navigate = useNavigate();              // Untuk navigasi ke halaman lain
-
+  console.log(API_URL)
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -26,6 +26,7 @@ function App() {
         username,
         password,
       });
+      
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token); // Simpan token
