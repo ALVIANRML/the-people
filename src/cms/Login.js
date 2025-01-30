@@ -32,6 +32,7 @@ function App() {
         setMessage(response.data.message); // Pesan sukses
         navigate(response.data.redirectTo); // Arahkan ke /dashboard
       }
+      console.log(response)
     } catch (error) {
       setMessage(
         error.response ? error.response.data.message : "Server error"
