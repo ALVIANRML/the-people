@@ -9,8 +9,8 @@ export function Popup({ isOpen, onClose, items, title, message }) {
   if (!isOpen) return null;
 
   // Function to determine the image based on eventType
-  const getEventImage = (eventType) => {
-    switch (eventType) {
+  const getEventImage = (eventtype) => {
+    switch (eventtype) {
       case 'Music':
         return spotify;
       case 'Shop':
@@ -21,8 +21,8 @@ export function Popup({ isOpen, onClose, items, title, message }) {
         return null; // Handle other cases if needed
     }
   };
-  const getTextButton = (eventType) => {
-    switch (eventType) {
+  const getTextButton = (eventtype) => {
+    switch (eventtype) {
       case 'Music':
         return "Checkout Our Playlist";
       case 'Shop':
@@ -61,18 +61,18 @@ export function Popup({ isOpen, onClose, items, title, message }) {
                   <div className="modal-body" key={item.id}>
                     <div className="category">
                       <p style={{ fontWeight: 'bold', fontSize: '24px' }}>
-                        {item.eventType}
+                        {item.eventtype}
                       </p>
-                      <p>{item.eventName}</p>
+                      <p>{item.eventname}</p>
                     </div>
                     <a
-                      href={item.eventLink}
+                      href={item.eventlink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="button-link"
                     >
-                      <p className="text-link">{getTextButton(item.eventType)} </p>
-                      <img className="img-link" src={getEventImage(item.eventType)} alt={item.eventType} />
+                      <p className="text-link">{getTextButton(item.eventtype)} </p>
+                      <img className="img-link" src={getEventImage(item.eventtype)} alt={item.eventtype} />
                     </a>
                   </div>
                 ))
