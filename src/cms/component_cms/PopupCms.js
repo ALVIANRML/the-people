@@ -225,7 +225,7 @@ export function PopupUpdateEvent({ text, isOpen, onClose, title, content, genre,
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/save-event", dataToSend);
+      const response = await axios.post(`${API_URL}/save-event`, dataToSend);
       console.log("Response from server:", response.data);
       console.log("Data saved successfully!");
 
