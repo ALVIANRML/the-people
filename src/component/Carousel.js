@@ -56,7 +56,7 @@ const MyCarousel = () => {
               src={image.image} // Gunakan URL Base64 dari API
               alt={`Slide ${index + 1}`}
               style={{
-                height: "79vh",
+                height: "auto",
                 objectFit: "cover",
               }}
             />

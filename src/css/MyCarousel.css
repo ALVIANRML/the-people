@@ -1,48 +1,57 @@
-/* Kontainer Utama */
-.stack-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  padding: 20px; /* Tambahkan padding agar tidak terlalu rapat */
-}
 
-/* Elemen Stack */
-.stack-container .stack {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-}
+  .custom-carousel .carousel-indicators {
+    z-index: 0; /* Atur nilai sesuai kebutuhan */
 
-/* Perbaikan indikator carousel */
+}
+/* Atur indikator carousel */
 .custom-carousel .carousel-indicators {
-  z-index: 2; /* Pastikan di atas elemen lain */
-  position: absolute; /* Bukan "block" */
-  bottom: 10px; /* Sesuaikan posisi */
+  z-index: 0; /* Atur nilai sesuai kebutuhan */
 }
 
-/* Responsif untuk tablet */
+/* Pastikan carousel memenuhi lebar parent */
+.custom-carousel {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* Menyembunyikan gambar yang melebihi ukuran */
+  position: relative;
+  display: block;
+}
+
+/* Gambar dalam carousel */
+.custom-carousel .carousel-item {
+  position: relative;
+}
+
+.custom-carousel .carousel-item img {
+  width: 100%; /* Memastikan gambar mengisi lebar container */
+  height: auto; /* Sesuaikan tinggi gambar secara proporsional */
+  object-fit: contain; /* Memastikan gambar tetap utuh dan tidak terpotong */
+  display: block;
+  margin: 0 auto; /* Menjaga gambar tetap di tengah jika ada ruang kosong */
+}
+
+/* Responsif untuk layar kecil */
 @media (max-width: 768px) {
-  .stack-container .stack {
-      max-width: 90%;
+  .custom-carousel {
+    height: auto; /* Menyesuaikan tinggi dengan gambar */
+  }
+
+  .custom-carousel .carousel-item img {
+    width: 100%; /* Menyesuaikan gambar agar memenuhi lebar */
+    height: auto; /* Sesuaikan tinggi gambar dengan lebar */
+    object-fit: contain; /* Tidak ada pemotongan gambar */
   }
 }
 
-/* Responsif untuk layar lebih kecil (ponsel) */
+/* Responsif untuk layar sangat kecil (ponsel) */
 @media (max-width: 480px) {
-  .stack-container {
-      flex-direction: column; /* Susun elemen ke bawah */
-      padding: 10px; /* Kurangi padding */
+  .custom-carousel {
+    height: auto; /* Menyesuaikan tinggi dengan gambar pada layar ponsel */
   }
-  .stack-container .stack {
-      max-width: 95%;
+
+  .custom-carousel .carousel-item img {
+    width: 100%; /* Memastikan gambar mengisi lebar carousel */
+    height: auto; /* Menyesuaikan tinggi gambar secara proporsional */
+    object-fit: contain; /* Gambar tetap terlihat utuh tanpa terpotong */
   }
 }
