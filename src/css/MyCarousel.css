@@ -1,35 +1,48 @@
 /* Kontainer Utama */
 .stack-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative; /* Buat kontainer tetap dalam tata letaknya */
-    z-index: 1; /* Kurangi nilai ini jika elemen ini menimpa */
-    
-    overflow: hidden; /* Hilangkan konten yang bocor */
-  }
-  
-  /* Elemen Stack */
-  .stack-container .stack {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    position: relative; /* Pastikan stack tidak menimpa elemen lain */
-    z-index: 1;
-  }
-  .custom-carousel .carousel-indicators {
-    z-index: 0; /* Atur nilai sesuai kebutuhan */
-    position: block; /* Tambahkan jika perlu */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 20px; /* Tambahkan padding agar tidak terlalu rapat */
 }
-  
-  /* Responsif */
-  @media (max-width: 768px) {
-    
-    .stack-container .stack {
+
+/* Elemen Stack */
+.stack-container .stack {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Perbaikan indikator carousel */
+.custom-carousel .carousel-indicators {
+  z-index: 2; /* Pastikan di atas elemen lain */
+  position: absolute; /* Bukan "block" */
+  bottom: 10px; /* Sesuaikan posisi */
+}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+  .stack-container .stack {
       max-width: 90%;
-    }
   }
+}
+
+/* Responsif untuk layar lebih kecil (ponsel) */
+@media (max-width: 480px) {
+  .stack-container {
+      flex-direction: column; /* Susun elemen ke bawah */
+      padding: 10px; /* Kurangi padding */
+  }
+  .stack-container .stack {
+      max-width: 95%;
+  }
+}
