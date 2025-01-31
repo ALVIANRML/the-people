@@ -1,146 +1,128 @@
-/* Default Styles */
 .modal-dialog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  max-width: 500px;
-}
-
-.background-popup {
-  top: 0;
-  left: 0;
-  border-radius: 10px;
-  background-color: #D0FF01;
+    display: contents;
+    width: 40%;
+    
+    
+  }
+  .background-popup {
+    
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #D0FF01; /* Warna hijau stabilo */
+    border: 1px solid black; /* Opsional: border */
+    z-index: 1; /* Latar belakang */
+    width: initial;
+    padding: 10px;
+    box-sizing: border-box; /* Memastikan border dihitung dalam ukuran elemen */
+     margin: 5%;
+  }
+  
+  .modal-content {
   border: 1px solid black;
-  z-index: 1;
-  width: 90%;
-  padding: 10px;
-  box-sizing: border-box;
-  margin: 5% auto;
-}
+  }
 
-.modal-content {
-  border: 1px solid black;
-}
+  .event{
+    background-color: black;
+    height: 10vh;
+    border-radius: 10px;
+    padding:auto ;
+    align-items: center;
+  }
 
-.event {
-  background-color: black;
-  height: 10vh;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .modal-body{
+    display: flex; /* Mengatur tata letak flexbox */
+    justify-content: space-between; /* Memberi jarak di antara elemen */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    gap: 20px; /* Memberi jarak antar elemen */
+    width: 95%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+  }
 
-.modal-body, .date-popup {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  width: 95%;
-  height: auto;
-  margin: 10px auto 5px;
-  border-radius: 10px;
-  font-size: large;
-}
+  .date-popup{
+    display: flex; /* Mengatur tata letak flexbox */
+    justify-content: space-between; /* Memberi jarak di antara elemen */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    gap: 20px; /* Memberi jarak antar elemen */
+    width: 95%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: black;
+    border-radius: 10px;
+    font-size: large;
+    font-style: italic;
+  }
 
-.modal-body {
-  background-color: black;
-  color: white;
-}
-
-.date-popup {
-  color: black;
-  font-style: italic;
-}
-
-.popup-body {
-  position: relative;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
-.button-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: auto;
-  padding: 10px 20px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  background: white;
-  color: #333;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
+  .popup-body{
+    position: relative;
+    top: 50%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    
+  }
+  .button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120%;
+    width: 35vh;
+    float: right;
+    align-items: center;
+    padding: 10px 20px;
+    border: 2px solid #ddd; /* Warna border abu-abu lembut */
+    border-radius: 8px; /* Membuat sudut melengkung */
+    background: white; /* Warna dasar putih */
+    color: #333; /* Warna teks gelap */
+    font-weight: bold; /* Memberi ketebalan teks */
+    text-transform: uppercase; /* Mengubah teks jadi kapital semua */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    cursor: pointer; /* Ubah kursor jadi pointer */
+    transition: all 0.3s ease; /* Animasi transisi */
 }
 
 .button-link:hover {
-  background: #f9f9f9;
-  border-color: #aaa;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-  color: #222;
+    background: #f9f9f9; /* Warna dasar berubah sedikit abu-abu saat hover */
+    border-color: #aaa; /* Warna border lebih gelap */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow lebih besar saat hover */
+    transform: translateY(-2px); /* Tombol sedikit naik */
+    color: #222; /* Warna teks sedikit lebih gelap */
 }
 
-.img-link {
-  height: 2vh;
-  float: right;
-}
 
-.text-link {
-  font-size: small;
-  margin: 0;
-  margin-right: 2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
 
-.category {
-  flex: 1;
-  text-align: left;
-}
+  .img-link{
+    height: 2vh;
+    float: right;
+  }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .modal-dialog {
-      width: 80%;
+  .text-link{
+    height: auto;
+    width: auto;
+    font-size: small;
+    float: left;
+    margin: 0;
+    margin-right: 2vw;
+    
   }
-  .modal-body, .date-popup {
-      flex-direction: column;
-      gap: 10px;
-  }
-  .button-link {
-      width: 100%;
-  }
-}
 
-@media (max-width: 480px) {
-  .modal-dialog {
-      width: 95%;
+  .category{
+    flex: 1; /* Elemen ini mengambil ruang fleksibel */
+    text-align: left; /* Mengatur teks ke kiri */
+    
   }
-  .modal-body, .date-popup {
-      width: 100%;
-      font-size: medium;
-  }
-  .popup-body{
-    padding: 10px;
-  }
-  .button-link {
-      font-size: small;
-      padding: 8px 15px;
-  }
-}
+
+  
+  
+  
