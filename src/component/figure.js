@@ -740,7 +740,7 @@ export function October() {
       setLoading(true);
       const response = await axios.get(`${API_URL}/get-event?month=10`);
       // console.log(response.data);
-      setItems(response.data); // Set data ke state items
+    
     } catch (err) {
       setError('Failed to fetch data');
     } finally {
