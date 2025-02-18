@@ -2,7 +2,7 @@ import React from "react";
 import '../css/Footer.css'; // File CSS untuk styling
 import logo from '../img/the_people_logo_2_top 2.png'
 
-const Footer = () => {
+const Footer = ({scrollToEvent}) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -23,7 +23,16 @@ const Footer = () => {
               Home
             </a>
           </li>
-          <li>Event</li>
+          <li><a 
+              href="#event" 
+              onClick={(e) => {
+                e.preventDefault(); // Mencegah reload halaman
+                scrollToEvent(); // Panggil fungsi untuk menggulir ke atas
+              }} 
+              style={{ cursor: "pointer", color: "gray" }}
+            >
+              Event
+            </a></li>
           
         </ul>
       </div>
@@ -49,11 +58,11 @@ const Footer = () => {
       </div>
       <div className="footer-section">
         <h3>Phone Number</h3>
-        <p>+6251827871897</p>
+        <p>+6285262879141</p>
       </div>
       <div className="footer-section">
-        <h3>Address</h3>
-        <p>Jl. Darussalam blablabla</p>
+        <h3>Email</h3>
+        <p>thepeople@gmail.com</p>
       </div>
       <img 
         src={logo}

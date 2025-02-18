@@ -10,9 +10,17 @@ import Events from './component/Text';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Footer from './component/Footer';
+import { useRef } from 'react';
 
 function App() {
   
+  const eventRef = useRef(null);
+
+  const scrollToEvent = () => {
+    if (eventRef.current) {
+      eventRef.current.scrollIntoView({ behavior : 'smooth'});
+    }
+  };
 
   return (
     <div className="app-container">
@@ -20,7 +28,9 @@ function App() {
         <LogoHeader />
         <Navbar />
         <MyCarousel  />
+        <div ref={eventRef}>
         <Events/>
+        </div>
         <MyStack />
         <hr style={{ border: "1px solid black",
         width: "90%", 
@@ -28,7 +38,7 @@ function App() {
         marginRight: "auto", 
         marginTop:"10%"
       }} />
-      <Footer/>
+      <Footer scrollToEvent = {scrollToEvent}/>
         
       </header>
     </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../../css/PopupCMS.css";
 import upload from "../../img/icon-link/upload.png";
 import axios from "axios";
@@ -146,7 +146,7 @@ export function Popup({ text, isOpen, onClose, title, content, genre, src, icon,
 }
 
 
-export function PopupUpdateCalender({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
+export function PopupAddCalender({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
   const fileInputRef = useRef(null);
   const [preview, setPreview] = useState(null); // State untuk menyimpan pratinjau gambar
 
@@ -212,6 +212,176 @@ export function PopupUpdateCalender({ text, isOpen, onClose, title, content, gen
     </div>
   );
 }
+
+export function PopupAddEvent({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
+  if (!isOpen) return null;
+
+  const handleSave = async () => {
+    const dataToSend = {
+      eventName: document.getElementById("event-name").value,
+      eventDate: document.querySelector("input[name='event_date']").value,
+      eventType: document.querySelector("select[name='event_type']").value,
+      eventLink: document.getElementById("event-link").value,
+    };
+
+    try {
+      const response = await axios.post(`${API_URL}/save-event`, dataToSend);
+      console.log("Response from server:", response.data);
+      console.log("Data saved successfully!");
+
+    // Show success toast
+    toast.success("Data saved successfully!", {
+      position: "top-right",
+      autoClose: 3000, // 3 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+      onClose();
+    } catch (error) {
+      console.error("Error saving data:", error);
+    }
+  };
+
+  return (
+    <div className="modal show d-block" tabIndex="-1" role="dialog" onClick={onClose}>
+      <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+        <div className="background-popup">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">
+                <b>{title}</b> Update Carousel
+              </h5>
+              <button type="button" className="btn-close" onClick={onClose}></button>
+            </div>
+            <div className="popup-body">
+              <div className="modal-body-cms" style={{ backgroundColor: 'transparent', justifyContent: "unset", alignItems: 'unset', justifyContent: "right" }}>
+                <label style={{ color: "black" }} id="event_name">Event Name</label>
+                <input
+                  type="text"
+                  id="event-name"
+                  className="modal-body-input"
+                  style={{ color: 'black', backgroundColor: 'white', border: '1px solid black' }}
+                  name="event_name"
+                  placeholder="Enter Event Name"
+                />
+
+                <label id="event_date" style={{ color: "black" }}>Add Event Date</label>
+                <input
+                  type="date"
+                  name="event_date"
+                  className="modal-body-input"
+                  style={{ color: 'black', backgroundColor: 'white', border: '1px solid black' }}
+                />
+
+                <label id="event-type" style={{ color: "black" }}>Event Type</label>
+                <EventType />
+
+                <label style={{ color: "black" }}>Event Link</label>
+                <input
+                  type="text"
+                  id="event-link"
+                  className="modal-body-input"
+                  style={{ color: 'black', backgroundColor: 'white', border: '1px solid black' }}
+                  name="event_link"
+                  placeholder="Enter Event LINK"
+                />
+              </div>
+              <button className="save-button" onClick={handleSave}>Save</button>
+            </div>
+            <div className="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+export function PopupUpdateCarousel({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
+  const [images, setImages] = useState([]); // State untuk menyimpan data gambar
+  const [loading, setLoading] = useState(true); // State untuk loading
+  const [error, setError] = useState(null); // State untuk menangkap error
+  
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/get-all-images`);
+        console.log("API Response:", response.data); // Log data API
+
+        // Pastikan data berbentuk array
+        if (Array.isArray(response.data)) {
+          setImages(response.data); // Simpan data gambar ke state               
+        } else {
+          throw new Error("Invalid response format"); // Jika format tidak sesuai
+        }
+      } catch (error) {
+        setError(error.message || "Error fetching images");
+        console.error("Error fetching images:", error);
+      } finally {
+        setLoading(false); // Set loading selesai
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const handleDelete = async (id) => {
+    try{
+      const response = await axios.delete(`${API_URL}/delete-image/${id}`);
+      setImages((prevImages) => prevImages.filter((image) => image.id !== id));
+    }catch (error) {
+      console.error("Error deleting image:", error);
+      alert("Failed to delete image!");
+    }
+  }
+  if (loading) {
+    return <div>Loading...</div>; // Tampilkan indikator loading
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>; // Tampilkan pesan error
+  }
+
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal show d-block" tabIndex="-1" role="dialog" onClick={onClose}>
+      <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+        <div className="background-popup">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">
+                <b>{title}</b> Add Carousel
+              </h5>
+              <button type="button" className="btn-close" onClick={onClose}></button>
+            </div>
+            <div className="popup-body">
+            {
+              images.length > 0 ? (
+                images.map((image) => (
+                  <div key={image.id}> 
+                   <img src={image.image} style={{ width: "100%", height: "auto" }} alt={`Image ${image.id}`} />
+                    <button className="save-button" id={image.id} style={{backgroundColor:'red', marginBottom:'10vh'}} >Delete</button>
+                  </div>
+                ))
+              ) : (
+                <div>No images available</div>
+              )
+            }
+            </div>
+                
+            <div className="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 export function PopupUpdateEvent({ text, isOpen, onClose, title, content, genre, src, icon, textButton }) {
   if (!isOpen) return null;
